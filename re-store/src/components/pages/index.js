@@ -1,4 +1,7 @@
 import HomePage from './home-page';
-import CardPage from './card-page';
+import CartPage from './cart-page';
 
-export { HomePage, CardPage };
+export {
+    HomePage,
+    CartPage
+};
