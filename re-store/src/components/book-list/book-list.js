@@ -4,7 +4,7 @@ import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import { connect } from 'react-redux';
 import { withBookstoreService } from '../hoc';
-import { fetchBooks, bookAddedToCard } from '../../actions';
+import { fetchBooks, bookAddedToCart } from '../../actions';
 import { compose } from '../../utils';
 import './book-list.css';
 class BookListContainer extends Component {
@@ -33,13 +33,13 @@ const BookList = ({ books, onAddedToCard }) => {
     </ul>);
 }
 
-const mapStateToProrps = ({ books, loading, error }) => {
+const mapStateToProrps = ({ bookList: { books, loading, error } }) => {
     return { books, loading, error }
 };
 const mapDistatchToProps = (dispatch, { bookstoreService }) => {
     return {
         fetchBooks: fetchBooks(dispatch, bookstoreService),
-        onAddedToCard: (id) => dispatch(bookAddedToCard(id))
+        onAddedToCard: (id) => dispatch(bookAddedToCart(id))
     }
 }
 
